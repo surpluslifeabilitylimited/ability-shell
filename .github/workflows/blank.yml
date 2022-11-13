@@ -28,3 +28,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: zip-scripts
         run: zip scripts.zip scripts/
+
+
+      - uses: actions/upload-artifact@v3.1.1
+        with:
+          name: build_scripts
+          path: scripts.zip
