@@ -36,4 +36,3 @@ jobs:
 #           path: scripts.zip
 
           include: LICENSE,README.md,scripts.zip
-          token: ${{ secrets.GITHUB_TOKEN }}
