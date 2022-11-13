@@ -1,2 +1,2 @@
 #!/bin/bash
-ifconfig | grep -e "inet [0-9]" | awk '{print $2}'
+ifconfig | grep -e "inet [0-9]" | awk '{print $2}' | grep -v '127'
