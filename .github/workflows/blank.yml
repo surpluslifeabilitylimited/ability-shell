@@ -24,13 +24,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - uses: taiki-e/upload-rust-binary-action@v1
+      
       # Runs a single command using the runners shell
       - name: zip-scripts
         run: zip scripts.zip scripts/
 
-
       - uses: actions/upload-artifact@v3.1.1
         with:
-          name: build_scripts
-          path: scripts.zip
+#           name: build_scripts
+#           path: scripts.zip
+
+          include: LICENSE,README.md,scripts.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
