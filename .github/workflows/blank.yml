@@ -21,7 +21,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: abc
-        run: zip scripts.zip scripts
+        run: pwd && ls && zip scripts.zip scripts
       - uses: actions/upload-artifact@v3.1.1
         name: upload-scripts
         with:
