@@ -10,7 +10,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello" && ls && zip scripts.zip scripts && ls
+      - run: echo "hello" && pwd && ls && zip scripts.zip scripts && ls
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
