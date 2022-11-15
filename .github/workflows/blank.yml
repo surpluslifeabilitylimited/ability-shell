@@ -6,18 +6,33 @@ on:
     - 'v*'
 
 jobs:
-  release:
-    name: Create Release
+
+  release-please:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "hello" && ls && zip scripts.zip scripts && ls
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: simple
+          extra-files: |
+            scripts.zip
+#   release:
+#     name: Create Release
+#     runs-on: ubuntu-latest
+#     steps:
     
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
-        draft: false
-        prerelease: false
+#     - name: Create Release
+#       id: create_release
+#       uses: actions/create-release@v1
+#       run: "zip scrpits.zip "
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#         tag_name: ${{ github.ref }}
+#         release_name: ${{ github.ref }}
+#         draft: false
+#         prerelease: false
+#         asset_path: scripts.zip
+#         asset_name: scripts.zip
+#         body_path: scripts.zip
+# #         asset_content_type: application/zip
