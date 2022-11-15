@@ -16,13 +16,20 @@ jobs:
       # Runs a single command using the runners shell
       - name: zip-scripts
         run: zip scripts.zip scripts/
-        
-#       - run: echo "hello" && pwd && ls && zip scripts.zip scripts && ls
-      - uses: google-github-actions/release-please-action@v3
+      
+      - name: Upload release
+        uses: yakuhzi/action-release@v1
         with:
-          release-type: simple
-          extra-files: |
-            scripts.zip
+          file: ./scripts.zip
+          changelog: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - run: echo "hello" && pwd && ls && zip scripts.zip scripts && ls
+#       - uses: google-github-actions/release-please-action@v3
+#         with:
+#           release-type: simple
+#           extra-files: |
+#             scripts.zip
 #   release:
 #     name: Create Release
 #     runs-on: ubuntu-latest
