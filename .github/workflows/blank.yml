@@ -10,7 +10,14 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello" && pwd && ls && zip scripts.zip scripts && ls
+    
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: zip-scripts
+        run: zip scripts.zip scripts/
+        
+#       - run: echo "hello" && pwd && ls && zip scripts.zip scripts && ls
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
