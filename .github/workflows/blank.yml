@@ -1,35 +1,23 @@
-# This is a basic workflow to help you get started with Actions
+name: Release
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    tags:
+    - 'v*'
 
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  release:
+    name: Create Release
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - name: abc
-        run: pwd && tree && zip scripts.zip scripts && tree
-      - uses: actions/upload-artifact@v3.1.1
-        name: upload-scripts
-        with:
-          name: script-upload
-          path: scripts.zip
-      # Runs a single command using the runners shell
- 
-
-
-
-
+    
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        draft: false
+        prerelease: false
