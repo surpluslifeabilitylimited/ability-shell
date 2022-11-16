@@ -12,11 +12,8 @@ jobs:
     steps:
       - name: Check out git repository
         uses: actions/checkout@v2
-
       - name: zip files
         run: zip scripts.zip scripts
-
-
       - name: Create git tag
         uses: pkgdeps/git-tag-action@v2
         with:
@@ -34,6 +31,5 @@ jobs:
           files: |
             scripts.zip
             init.sh
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
