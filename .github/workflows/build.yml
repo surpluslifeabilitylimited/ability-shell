@@ -36,5 +36,6 @@ jobs:
           tag_name: v${{ env.PACKAGE_VERSION }}
           files: |
             scripts.zip
+		 init.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
