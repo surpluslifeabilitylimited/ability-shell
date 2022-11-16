@@ -33,6 +33,7 @@ jobs:
           tag_name: RELEASE
           files: |
             scripts.zip
-		    init.sh
+            init.sh
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
