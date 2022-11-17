@@ -3,7 +3,7 @@
 
 echo "开始初始化工具脚本"
 echo "下载脚本"
-wget https://github.com/surpluslifeabilitylimited/ability-shell/releases/download/0.0.1-TEST/scripts.zip
+wget https://github.com/surpluslifeabilitylimited/ability-shell/releases/download/RELEASE/scripts.zip
 echo "脚本下载完毕"
 
 
